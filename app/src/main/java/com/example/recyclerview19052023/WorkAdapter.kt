@@ -1,20 +1,29 @@
 package com.example.recyclerview19052023
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class WorkAdapter(
-    var listWorks: List<Work>
+    private var context: Context,
+    private var listWorks: List<Work>
 ) : RecyclerView.Adapter<WorkAdapter.WorkViewHolder>(){
 
     inner class WorkViewHolder(var view: View): RecyclerView.ViewHolder(view) {
         private var txtTile: TextView = view.findViewById(R.id.text_view_title)
         private var txtDescription: TextView = view.findViewById(R.id.text_view_description)
         private var imgDelete: ImageView = view.findViewById(R.id.image_view_delete)
+
+        init {
+            imgDelete.setOnClickListener {
+                Toast.makeText(context, "Click image delete", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         fun bind(work: Work) {
             txtTile.text = work.title

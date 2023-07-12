@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             add(Work("Title 4", "Do something 4"))
             add(Work("Title 5", "Do something 5"))
         }
-        workAdapter = WorkAdapter(listWorks ?: mutableListOf())
+        workAdapter = WorkAdapter(this, listWorks ?: mutableListOf())
         recyclerView?.adapter = workAdapter
     }
 }
