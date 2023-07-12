@@ -26,5 +26,6 @@ class MainActivity : AppCompatActivity() {
                 workAdapter?.notifyItemRemoved(position)
             }
         })
+        // Task : Thêm todo mới vào recyclerview và thằng mới nhất sẽ nằm trên cùng
     }
 }
