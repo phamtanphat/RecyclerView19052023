@@ -2,6 +2,7 @@ package com.example.recyclerview19052023
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -25,5 +26,11 @@ class MainActivity : AppCompatActivity() {
         }
         workAdapter = WorkAdapter(this, listWorks ?: mutableListOf())
         recyclerView?.adapter = workAdapter
+
+        workAdapter?.setOnClickListener(object : WorkAdapter.OnClickListener {
+            override fun onClick(position: Int) {
+                Toast.makeText(this@MainActivity, "Click delete", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
