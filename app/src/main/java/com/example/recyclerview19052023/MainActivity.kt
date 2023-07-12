@@ -15,5 +15,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.recyclerview)
+
+        listWorks = mutableListOf<Work>().apply {
+            add(Work("Title 1", "Do something 1"))
+            add(Work("Title 2", "Do something 2"))
+            add(Work("Title 3", "Do something 3"))
+            add(Work("Title 4", "Do something 4"))
+            add(Work("Title 5", "Do something 5"))
+        }
+        workAdapter = WorkAdapter(listWorks ?: mutableListOf())
+        recyclerView?.adapter = workAdapter
     }
 }
